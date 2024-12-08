@@ -9,6 +9,9 @@ It is a simple dapp where user can send me coffee with ethereum
 - Frontend + Backend `next js`
 - Smart Contrast `solidity`
 
+## ETH scan
+https://sepolia.etherscan.io/address/0x6f83a95f8d7f1d04aaff0207fa95308a5b6cdf51
+
 ## How i made this dapp
 - Created a smart contract on remix ide with some use of OpenZeplin
 - Then created a next js that can interact with blockchain smart contract with use of web.js
