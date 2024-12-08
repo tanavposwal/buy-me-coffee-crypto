@@ -67,8 +67,8 @@ contract Ownable {
 }
 
 
-contract CourseRegistration is Ownable {
-    uint256 public courseFee;
+contract BuyACoffee is Ownable {
+    uint256 public coffeePrice;
     Payment[] public payments;
 
     event PaymentReceived(address indexed user, string email, uint256 amount);
@@ -79,12 +79,12 @@ contract CourseRegistration is Ownable {
         uint256 amount;
     }
 
-    constructor(uint256 _courseFee) Ownable(msg.sender) {
-        courseFee = _courseFee;
+    constructor(uint256 _price) Ownable(msg.sender) {
+        coffeePrice = _price;
     }
 
-    function payForCourse(string memory email) public payable {
-        require(msg.value == courseFee, "Payment must be equal to the course fee");
+    function payForCoffee(string memory email) public payable {
+        require(msg.value == coffeePrice, "Payment must be equal to the price");
         payments.push(Payment(msg.sender, email, msg.value));
         emit PaymentReceived(msg.sender, email, msg.value);
     }
