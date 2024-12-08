@@ -4,6 +4,7 @@ import { contractABI } from "@/abi";
 import { useEffect, useState } from "react";
 import Web3 from "web3";
 import PayForm from "./PayForm";
+import { Skeleton } from "./ui/skeleton";
 
 export default function Pay() {
   const [web3, setWeb3] = useState<any>(null);
@@ -52,7 +53,9 @@ export default function Pay() {
           coffeeFee={coffeeFee}
         />
       ) : (
-        <div>Loading...</div>
+        <div>
+          <Skeleton className="h-48 w-[250px]" />
+        </div>
       )}
     </div>
   );

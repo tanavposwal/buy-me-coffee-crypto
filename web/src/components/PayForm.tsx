@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 export default function PayForm({
   web3,
@@ -36,27 +38,25 @@ export default function PayForm({
 
   return (
     <main>
-      <div className="flex flex-col gap-3 border rounded p-4 shadow">
+      <div className="flex flex-col gap-3 border rounded p-6 shadow">
         <h3 className="text-lg font-bold">Buy a coffee of: {coffeeFee} eth</h3>
-        <label htmlFor="email" className="text-sm opacity-60">
+        <label htmlFor="email" className="text-sm opacity-60 -mb-2">
           Enter email
         </label>
-        <input
+        <Input
           id="email"
           type="email"
-          className="border rounded  px-3 py-2"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
 
-        <button
+        <Button
           onClick={() => payForCoffee()}
-          className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 rounded-lg"
         >
           Send a coffee via eth
-        </button>
+        </Button>
       </div>
     </main>
   );
