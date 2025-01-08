@@ -11,7 +11,7 @@ export default function Pay() {
   const [coffeeContract, setCoffeeContract] = useState<any>(null);
   const [coffeeFee, setCoffeeFee] = useState<string>("");
   const contractAddress = "0x6f83a95F8D7F1d04AAff0207fa95308a5B6CdF51";
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (window.ethereum) {
@@ -26,13 +26,13 @@ export default function Pay() {
             contractAddress
           );
           setCoffeeContract(coffeeInstance);
-         
+
           coffeeInstance.methods
             .coffeePrice()
             .call()
             .then((fee: any) => {
               setCoffeeFee(web3Instance.utils.fromWei(fee, "ether"));
-              setLoading(false)
+              setLoading(false);
             });
         })
         .catch((err) => {
@@ -46,15 +46,15 @@ export default function Pay() {
 
   return (
     <div>
-      {(web3 && !loading) ? (
+      {web3 && !loading ? (
         <PayForm
           web3={web3}
           coffeeContract={coffeeContract}
           coffeeFee={coffeeFee}
         />
       ) : (
-        <div>
-          <Skeleton className="h-48 w-[250px]" />
+        <div className="rounded-xl p-6 shadow bg-white">
+          Connect A Wallet To Pay 😀
         </div>
       )}
     </div>

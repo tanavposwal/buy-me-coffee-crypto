@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Buy Me Coffee Crypto",
@@ -20,8 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} antialiased min-h-screen w-full`}>
+      <body
+        className={`${GeistSans.className} antialiased min-h-screen w-full bg-yellow-300`}>
         {children}
+        <Toaster />
       </body>
     </html>
   );
