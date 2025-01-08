@@ -15,6 +15,9 @@ export default function Home() {
           portfolio
         </a>
       </div>
+      <p className="opacity-60 text-sm">
+        seploia testnet | Made with ❤️ by Tanav
+      </p>
     </main>
   );
 }

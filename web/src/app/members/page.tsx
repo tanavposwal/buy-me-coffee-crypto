@@ -1,16 +1,17 @@
 "use client";
 
 import { contractABI } from "@/abi";
-import { Skeleton } from "@/components/ui/skeleton";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Web3 from "web3";
 
 export default function Me() {
+  //@ts-ignore
   const [web3, setWeb3] = useState<any>(null);
+  //@ts-ignore
   const [coffeeContract, setCoffeeContract] = useState<any>(null);
   const contractAddress = "0x6f83a95F8D7F1d04AAff0207fa95308a5B6CdF51";
   const [payments, setPayments] = useState([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (window.ethereum) {
@@ -50,9 +51,7 @@ export default function Me() {
     <main className="flex flex-col h-screen w-full items-center justify-center gap-3">
       <h1 className="text-4xl font-black">All members</h1>
       {loading ? (
-        <div>
-          <Skeleton className="h-96 w-[300px]" />
-        </div>
+        <div>loading...</div>
       ) : (
         <div className="flex flex-col gap-3">
           <p className="text-sm opacity-60">

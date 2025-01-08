@@ -4,7 +4,6 @@ import { contractABI } from "@/abi";
 import { useEffect, useState } from "react";
 import Web3 from "web3";
 import PayForm from "./PayForm";
-import { Skeleton } from "./ui/skeleton";
 
 export default function Pay() {
   const [web3, setWeb3] = useState<any>(null);
