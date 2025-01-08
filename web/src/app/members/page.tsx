@@ -48,7 +48,7 @@ export default function Me() {
 
   return (
     <main className="flex flex-col h-screen w-full items-center justify-center gap-3">
-      <h1 className="text-3xl font-black">Admin</h1>
+      <h1 className="text-4xl font-black">All members</h1>
       {loading ? (
         <div>
           <Skeleton className="h-96 w-[300px]" />
@@ -58,12 +58,11 @@ export default function Me() {
           <p className="text-sm opacity-60">
             Total {payments.length} people have sent you the coffee!
           </p>
-          <ul className="h-96 border rounded shadow p-6 flex flex-col gap-1 overflow-y-auto">
+          <ul className="h-96 w-80 rounded-xl bg-white shadow p-6 flex flex-col gap-1 overflow-y-auto">
             {payments.map((payment: any) => (
               <li
                 key={payment.email}
-                className="opacity-80 text-sm list-disc ml-3"
-              >
+                className="opacity-80 text-sm list-disc ml-3">
                 <p>email: {payment.email}</p>
               </li>
             ))}
